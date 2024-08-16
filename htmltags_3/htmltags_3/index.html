@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Знакомство с HTML тэгами. Часть №3 (Формы) </title>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" ./>
+    </head>
+    <body>
+        <form action="#" method="get"> 
+            <!-- <form action="#"> </form>  -->
+                <!-- тег form оболочка формы, блочный тег, отвечающий за передачу данных,
+                а куда именно полетят данные, определяет его атрибут action(адрес сервера),
+                оставлять пустой атрибут нельзя, будет считаться ошибкой, надо поставить заглушку - "#" -->
+                
+            <!-- <form action="#" method="get"> </form>  -->
+                <!-- Атрибут method отвечает за метод передачи данных и может иметь два значения, get, при методе гет 
+                получение данных идет прямо в адресной строке, они видны любому пользователю, 
+                подходит для передачи маленького кол-ва данных -->
+            
+            <!-- <form action="#" method="post"> </form>  -->
+                <!-- значение post передает данные скрытно, используя запрос браузера, позволяет отправить намного больше данных,
+                к этому методу можно прикреплять файлы -->
+
+            <!-- <form action="#" method=""enctype"multipart/form-data"> </form>       -->
+            <!--Тут не ясно()  -->
+            
+            <!-- <form action="#" method="post" enctype"multipartform-data"></form>       -->
+            
+            <!-- <input type="text" name="" value=""> -->
+                <!-- Интерактивный элемент формы input, выстраивается строкой, с помощью которого мы можем получить данные от пользователя,
+                атрибут type определяет метод передачи, поумолчанию text, так же мы используем еще два атрибута,
+                которые формируют пару данных имя(name) и значения(value).
+                В (value) можно записать подсказку, что писать пользователю в форму, но её надо удалить-->
+                
+                <!-- <input type="tel" name="" value="">  что - то с цифрами, потом выяснить-->
+
+                <!-- placeholder="Введите имя" - позволяет сделать в форме подсказку-->
+            
+            <div>
+                <input tabindex="1" placeholder="Введите имя" type ="text" name="username" value="">
+                <br>
+                <input tabindex="2" type="tel" name="" value="">
+            </div>
+
+            
+                <!-- Что-то с цифрами, переключает на цифровую раскладку -->
+
+            <!-- <input type="password" name="userpass" value=""> -->
+                <!-- Тут мы не видим, что вводим в форме -->
+            <div>   
+                <input tabindex="3" type="password" name="userpass" value="">
+            </div>
+                <!-- radio - кнопка переключатель, на вид круглая, чтобы можно было делать отдельные блоки, надо поменять name, 
+                если после слова input добавить слово checked, то на странице будет сразу выбрана одна из кнопок-->
+                
+                <!-- ******* -->
+                <!-- если после слова input добавить слово disabled, то на странице нельзя будет активировать элемент -->
+
+                <!-- tabindex="1" - взависимости от цифры позволяет настроить переключение по клавише tab -->
+            <div>   
+                <p><input tabindex="4" checked type="radio" name="beer" value="lager">Светлое пиво</p>
+                <p><input tabindex="4" type="radio" name="beer" value="dark">Темное пиво</p>
+            </div>
+            <br>
+            <div>   
+                <p><input tabindex="5" type="radio" name="beer2" value="lager">Светлое пиво</p>
+                <p><input tabindex="6" type="radio" name="beer2" value="dark">Темное пиво</p>
+            </div>
+            <br>
+            <!-- checkbox - кнопка флажок, на вид квадратная, можно выбирать несколько или все, но обязательно нужны разные параметры name,
+            если после слова input добавить слово checked, то на странице будет сразу выбраy один из флажков-->
+            <div>   
+                <p><input tabindex="7" type="checkbox" name="auto1" value="Bmw"> Бэха</p>
+                <p><input tabindex="8" checked type="checkbox" name="auto2" value="Mersedes"> Мерс </p>
+                <p><input tabindex="9" type="checkbox" name="auto3" value="Nissan"> Ниссан </p>
+                <p><input tabindex="10" type="checkbox" name="auto4" value="Kia"> Кия </p>
+            </div>
+
+            <!-- file позволяет вложить файл, обязательно нужна настройка 
+            тега form вначале (<form action="#" method="post" enctype"multipart/form-data"></form>   ) -->
+            <div>   
+                <p><input tabindex="11" type="file" name="" value=""></p>
+            </div>
+            <br>
+            <!-- textarea - создает поле, можно указать cols="100" и rows="80" например, но как правило их удаляют а уже задают размеры в js и css  -->
+            <div>   
+                <textarea tabindex="12" name="text"></textarea>
+            </div>
+            <!-- select + option дают возможность сделать выпадающий список, чтобы зафиксировать значение на странице пишем после 
+            option - selected, чтобы выпадал весь список пишем после select - multiple, зажав контрл можно выбрать несколько вариантовµ  -->
+            <div>   
+                <select tabindex="13" name="">
+                    <option value="white">Белый</option>
+                    <option value="blue">Синий</option>
+                    <option value="red">Красный</option>    
+                </select>
+            </div>
+            <br>
+            <!-- button кнопка есть submit и reset -->
+            <div>   
+                <button tabindex="14" type="submit">Отправить</button>
+                <button tabindex="1" type="reset">Очистить формы</button>
+            </div>
+            <!-- ВАЖНО все значения name не должны повторяться, иначе сервер не поймет, что из этого пароль или логин например,
+            исключение только тег radio, там наоборот одинаковый name позволяет сделать выбор  -->
+        </form>
+    </body>
+
+</html>
