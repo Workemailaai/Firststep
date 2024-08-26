@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>CSS Часть №1(СИнтаксис + Обнуление) </title>
+
+        <link rel="stylesheet" href="./css/style.css"/>
+
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"./>
+    </head>
+    <!-- Синтаксис CSS. -->
+   
+    <!-- Размер шрифта учитывается самый нижний, данные перезаписываются -->
+    
+    <!-- Чтобы использовать только тега спан с классом 
+    нужно сделать следующую записть 
+    span.bigred { 
+    font-size: 10px;
+        color: red;
+    } 
+    -->
+    
+    <!-- Когда используется тег и класс, запись является приоритетной -->
+    
+    <!-- Вложенность. чтобы взаимодействовать с тегами внутри классов делаем такую запись:
+    .bigred span{
+        color: green;
+    }    
+    -->
+    
+     <!-- Чтобы обратиться к тегу, в котором много вложенных тегов и только к выше стоящему, пишем:
+    (Добавляем класс тегу
+    .block>p{
+        color: blue;
+    } 
+    -->
+
+    <!-- Наследование параметров:
+    Есть параметры, которые наследуются и есть которые нет. Например цвет текста и размер
+    наследуются, а вот рамка не наследуется.
+    -->
+
+    <!-- /* Обнуление стилей */
+
+    1.Очищаем все отступы и границы 
+    
+    *{
+        padding: 0;(внутрение)
+        margin: 0;(внешние)
+        border: 0;(граница бордов)
+    }    
+
+    2. Меняем подсчет ширины блока 
+    
+    *,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+    3. Убираем линии обводки у некоторых браузеров
+    
+    :focus,:active{outline:none;}
+    a:focus,:active{outline:none;}
+
+    4.Перечисляем теги и делаем их блочными
+    
+    nav, footer, header, aside{display: block;}
+
+    5. Применим уравнивание ко всем браузерам
+
+    html, body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    }
+
+    6. Применяем наследование семейство шрифта
+
+    input, button,textarea{font-family:inherit;}
+
+    7. Убираем особенности браузеров:убираем крестик, убираем отступы
+    чистим стили маркированных списков
+
+    input::-ms-clear{display: none;} 
+    button{cursor: pointer;}
+    button::-moz-focus-inner {padding: 0; border: 0;} 
+    a, a:visited{text-decoration: none;}
+    a:hover{text-decoration: none;}
+    ul li{list-style: none;} 
+    img{vertical-align: top;}
+
+    8. Обнуляем все заголовки
+
+    h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight: 400;}    
+    -->
+    <body>
+        <!-- Задавая класс после тега можно изменять стиль -->
+        <!-- <p class="bigred">Lorem <span >ipsum dolor sit amet</span> consectetur <span>adipisicing elit.</span> Nihil, vitae.</p> -->    <div>
+        <div>
+            <p class="bigred">Lorem <span class="bigred">ipsum dolor sit amet</span> consectetur <span>adipisicing elit.</span> Nihil, vitae.</p>
+        </div>
+        <div>
+            <p>Lorem <span class="bigred">ipsum dolor</span> sit amet.</p>
+        </div>
+    </body>
+</html>
